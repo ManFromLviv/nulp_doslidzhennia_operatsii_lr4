@@ -16,6 +16,10 @@ def northwest_corner_method(costs, supplies, demands):
 
     print("=" * 50)
 
+    # Перевірка на валідність вхідних даних
+    if np.sum(supplies) != np.sum(demands):
+        raise ValueError("Сума постачань має бути рівною сумі вимог")
+
     # Вираховуємо розмір постачання/попиту за методом північно-західного кута
     i, j, counter = 0, 0, 1
     while i < rows and j < cols:
@@ -49,7 +53,7 @@ def northwest_corner_method(costs, supplies, demands):
 
 # Значення розв'язане за допомогою бібліотеки Python
 def solve_transportation_problem_with_library(costs, supplies, demands):
-    # Перевірка на валідність вхідних даних
+    #  Перевірка на валідність вхідних даних
     if np.sum(supplies) != np.sum(demands):
         raise ValueError("Сума постачань має бути рівною сумі вимог")
 
@@ -81,7 +85,7 @@ def solve_transportation_problem_with_library(costs, supplies, demands):
     print("\tМінімальне значення цільової функції:", res.fun)
 
 if __name__ == '__main__':
-    print("Програму створив Павло Вальчевський, група ОІ-11сп, ЛР № 4, Дослідження операцій (ММДО або ДО)")
+    print("Програму створив Павло Вальчевський, група ОІ-11сп, ЛР № 4, варіант № 91, Дослідження операцій (ММДО або ДО)")
 
     # Дані для варіанту № 91
     costs = np.array([[1, 3, 3, 8],
